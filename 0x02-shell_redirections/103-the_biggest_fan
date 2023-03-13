@@ -1,3 +1,2 @@
 #!/bin/bash
-FILE=$1
-awk '{ count[$1]++ } END { for (ip in count) printf "%-20s %s\n", ip, count[ip] }' "$FILE" \ | sort -k 2 -nr \ | head -n 11
+tail -n +2 | cut -f1 | sort | uniq -c | sort -nr | head -11 | tr -s'' | cut -d '' -f3
